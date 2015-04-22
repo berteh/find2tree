@@ -1,6 +1,6 @@
 #find2tree
 
-This script generates a jstree json data file from a directory listing.
+This script generates a [jstree json data](http://www.jstree.com/docs/json/) file from a directory listing.
 
 ##Usage
 Possible uses are, eg:
