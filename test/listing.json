@@ -1,0 +1,15 @@
+[
+{"id": "xXIukllGjKgLyWYn4Eg9Hw", "parent":"#", "text":"ftp://myftpserver", "icon":"folder", "state":{ "opened":true, "selected":true}, "li_attr": {"rel": "ftp://myftpserver"}},
+{"id": "rGGBdaQ15T7dau1bQWgLFg", "parent": "xXIukllGjKgLyWYn4Eg9Hw", "text":"listing.txt", "icon" : "file file-txt", "li_attr": {"rel": "ftp://myftpserver/listing.txt"}},
+{"id": "HZSYkP6tehx31a0zlYbDaQ", "parent": "xXIukllGjKgLyWYn4Eg9Hw", "text":"dir3", "icon" : "folder", "li_attr": {"rel": "ftp://myftpserver/dir3"}},
+{"id": "DKaay2Q65oLdcAt8GQslZA", "parent": "xXIukllGjKgLyWYn4Eg9Hw", "text":"file.txt", "icon" : "file file-txt", "li_attr": {"rel": "ftp://myftpserver/file.txt"}},
+{"id": "/URwhisT8yv8w2WaqNxAgg", "parent": "xXIukllGjKgLyWYn4Eg9Hw", "text":"dir1", "icon" : "folder", "li_attr": {"rel": "ftp://myftpserver/dir1"}},
+{"id": "Z63UfxeSkeTum9Twhr+wfA", "parent": "xXIukllGjKgLyWYn4Eg9Hw", "text":"tdoc.doc", "icon" : "file file-doc", "li_attr": {"rel": "ftp://myftpserver/tdoc.doc"}},
+{"id": "zrbLiYElLCPolz3S2Kmgww", "parent": "xXIukllGjKgLyWYn4Eg9Hw", "text":"dir2", "icon" : "folder", "li_attr": {"rel": "ftp://myftpserver/dir2"}},
+{"id": "ki3dl202k2UF57EGEMH9+g", "parent": "zrbLiYElLCPolz3S2Kmgww", "text":"dir3", "icon" : "folder", "li_attr": {"rel": "ftp://myftpserver/dir2/dir3"}},
+{"id": "BTTjxoc6gsaZHmlqeN9sxA", "parent": "zrbLiYElLCPolz3S2Kmgww", "text":"dir1", "icon" : "folder", "li_attr": {"rel": "ftp://myftpserver/dir2/dir1"}},
+{"id": "wIbv0e3nLl2lrMaEgXeNGw", "parent": "zrbLiYElLCPolz3S2Kmgww", "text":"text.txt", "icon" : "file file-txt", "li_attr": {"rel": "ftp://myftpserver/dir2/text.txt"}},
+{"id": "gTSxv+kbgji4Fca6iwGsvA", "parent": "zrbLiYElLCPolz3S2Kmgww", "text":"dir2", "icon" : "folder", "li_attr": {"rel": "ftp://myftpserver/dir2/dir2"}},
+{"id": "eJDuoc/9/OvhnsNmsPcqmg", "parent": "gTSxv+kbgji4Fca6iwGsvA", "text":"tdoc2.doc", "icon" : "file file-doc", "li_attr": {"rel": "ftp://myftpserver/dir2/dir2/tdoc2.doc"}},
+{"id": "oBP4G2UJtYr5osXDtQKGdw", "parent": "gTSxv+kbgji4Fca6iwGsvA", "text":"text.txt", "icon" : "file file-txt", "li_attr": {"rel": "ftp://myftpserver/dir2/dir2/text.txt"}}
+]
