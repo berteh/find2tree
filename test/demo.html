@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>FTP listing via find2tree</title>
+	<meta name="viewport" content="width=device-width" />
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.1.0/themes/default/style.min.css" />
+	<style>
+	html { background:#ebebeb; margin:0; padding:0; font-size:62.5%; }
+	body { max-width:800px; background: white; min-width:240px; margin:0 auto; padding:20px 10px;
+		font-family: sans}
+
+	h1 { font-size:1.8em; }
+	.tree { overflow:auto; border:1px solid silver; min-height:100px; }
+	#nav {background: #ebebeb; padding: 1ex;}
+	#down {float:right;}
+	#q{width: 30%;}
+	li .jstree-search {background: lightblue}
+	footer {margin-top: 1em; font-size: 80%; text-align: center}
+
+	.tree .folder { background:url('http://github.com/vakata/jstree/raw/master/demo/filebrowser/file_sprite.png') right bottom no-repeat; }
+	.tree .file { background:url('http://github.com/vakata/jstree/raw/master/demo/filebrowser/file_sprite.png') 0 0 no-repeat; }
+	.jstree-default .jstree-icon:empty {width: 18px; height: 18px;}
+	
+	.tree .file-pdf, .tree .file-ps, .tree .file-eps { background-position: -18px 0 }
+	.tree .file-htm, .tree .file-html, .tree .file-xml, .tree .file-xsl { background-position: -126px -0px }
+	.tree .file-xls, .tree .file-xlsx, .tree .file-ods, .tree .file-csv { background-position: -362px -0px }
+	.tree .file-jpg, .tree .file-jpeg, .tree .file-png, .tree .file-gif, .tree .file-bmp { background-position: -126px -18px }
+	.tree .file-ppt, .tree .file-pptx, .tree .file-odp { background-position: -144px -18px }
+	.tree .file-doc, .tree .file-docx, .tree .file-odt { background-position: -362px -18px }
+	.tree .file-zip, .tree .file-gz, .tree .file-tar, .tree .file-tgz, .tree .file-rar { background-position: -416px -18px }
+	.tree .file-text, .tree .file-txt, .tree .file-md, .tree .file-log, .tree .file-htaccess { background-position: -254px -18px }
+	.tree .file-svg, .tree .file-svgx { background-position: -308px -18px }
+	.tree .file-mp4, .tree .file-avi, .tree .file-mkv, .tree .file-mov, .tree .file-flv { background-position: -90px 0px }
+	
+	</style>
+	
+
+</head>
+<body>
+	<h1>FTP listing via find2tree</h1>
+	
+	<div id="nav">		
+		<a id="down" href="#" title=""></a>
+		<form id="s">
+		  <input type="search" id="q" />
+		  <button type="submit">Search</button>
+		  <input class="button" value="&times;" id="clear" style="" type="button" />
+		</form>
+	</div>
+		
+	<div id="ajax" class="tree"></div>	
+
+	<footer xmlns:cc="http://creativecommons.org/ns#"><p><a rel="license" href="http://creativecommons.org/licenses/by/4.0/" title="Creative Commons Attribution 4.0 International license"><img src="http://i.creativecommons.org/l/by/4.0/88x31.png" alt="License"></a></p>
+		<p about="ftp://myftpserver"><small>Except where otherwise noted, content on <span href="ftp://myftpserver" property="cc:attributionURL">this site</span> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International license</a>.</small></p>
+	</footer>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.1.0/jstree.min.js"></script>
+	<script src="http://leafo.net/sticky-kit/src/jquery.sticky-kit.min.js">#please download and host a mirror. do not hard-link to an external site!</script>
+	
+	
+	<script>
+$('#ajax')
+// listen for events
+.on('select_node.jstree', function (e, data) {		
+	$('#down').attr("href",data.node.li_attr.rel);
+	if (data.node.icon == "folder") {
+		$('#down').attr("title",'open "' + data.node.text+'"');
+		$('#down').text('open');
+	} else {			
+		$('#down').attr("title",'download "' + data.node.text+'"');
+		$('#down').text('download');
+		document.location.href = data.node.li_attr.rel;
+	}
+})
+//create tree instance
+.jstree({
+	'core' : {
+		'data' : {
+			"url" : "https://raw.githubusercontent.com/berteh/find2tree/master/test/listing.json",
+			"dataType" : "json" // needed only if you do not supply JSON headers
+		},
+		'html_titles':true
+	},
+	"plugins" : [ "themes", "search"]
+});
+
+//configure search
+$("#s").submit(function(e) {
+	e.preventDefault();
+	$("#ajax").jstree(true).search($("#q").val());
+});
+$("#clear").click(function () {	  
+	$("#ajax").jstree("clear_search");
+});
+
+//sticky nav
+$("#nav").stick_in_parent();
+
+	</script>
+</body>
+</html>
