@@ -1,0 +1,13 @@
+.
+./listing.txt
+./dir3
+./file.txt
+./dir1
+./tdoc.doc
+./dir2
+./dir2/dir3
+./dir2/dir1
+./dir2/text.txt
+./dir2/dir2
+./dir2/dir2/tdoc2.doc
+./dir2/dir2/text.txt
